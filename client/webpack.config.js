@@ -30,22 +30,31 @@ module.exports = () => {
       }),
       //creates manifest.json
       new WebpackPwaManifest({
-        fingerprints: false,
-        inject: true,
         name: "Just Another Text Editor",
-        short_name: "JATE",
-        description: "JATE in PWA",
+        short_name: "J.A.T.E.",
+        description: "Takes notes with Javascript syntax highlighting.",
         background_color: "#FFFFFF",
         theme_color: "#FFFFFF",
         start_url: "/",
         publicPath: "/",
         display: "standalone",
         crossorigin: "use-credentials",
+        inject: true,
+        fingerprints: false,
         icons: [
           {
             src: path.resolve("./src/images/logo.png"),
             sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
           },
+          {
+            src: path.resolve("./src/images/logo.png"),
+            size: '1024x1024' // you can also use the specifications pattern
+          },
+          {
+            src: path.resolve("./src/images/logo.png"),
+            size: '1024x1024',
+            purpose: 'maskable'
+          }
         ],
       }),
     ],
